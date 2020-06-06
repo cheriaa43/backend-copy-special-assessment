@@ -18,8 +18,9 @@ import shutil
 import zipfile
 from io import StringIO
 
-# devs: change this to soln.copyspecial to test solution
-PKG_NAME = 'soln.copyspecial'
+# devs: chan
+# ge this to soln.copyspecial to test solution
+PKG_NAME = 'copyspecial'
 SPL_REGEX = re.compile(r'__(\w+)__')
 
 
