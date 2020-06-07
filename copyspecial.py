@@ -8,7 +8,7 @@
 
 # give credits
 
-__author__ = "Cheria Artis with Chris Warren and Chris Escobedo"
+__author__ = "Cheria Artis with Chris Warren, Chris Escobedo, Brandi Cotton, Piero"
 
 import re
 import os
@@ -22,7 +22,7 @@ def get_special_paths(dirname):
     """Given a dirname, returns a list of all its special files."""
 
     path_list = [
-        os.path.abspath(os.path.join(os.getcwd(), f))
+        os.path.abspath(os.path.join(dirname, f))
         for f in (os.listdir(dirname))
         if re.search(r'__(\w+)__', f)
         ]
@@ -30,6 +30,7 @@ def get_special_paths(dirname):
 
 
 def copy_to(path_list, dest_dir):
+    """Copies the path list to the destination directory."""
     print(path_list)
     print(dest_dir)
     try:
@@ -46,7 +47,7 @@ def copy_to(path_list, dest_dir):
 
 
 def zip_to(path_list, dest_zip):
-
+    """Zips the files in the path list to the destination zip file."""
     file_list = ''
     for path in path_list:
         file_list += path + ' '
@@ -71,14 +72,13 @@ def main(args):
     if not ns:
         parser.print_usage()
         sys.exit(1)
+    special_paths = get_special_paths(ns.from_dir)
     if ns.todir:
-        copy_to(get_special_paths(ns.from_dir), ns.todir)
+        copy_to(special_paths, ns.todir)
     if ns.tozip:
-        zip_to(get_special_paths(ns.from_dir), ns.tozip)
+        zip_to(special_paths, ns.tozip)
     if not ns.todir and not ns.tozip:
-        path_list = get_special_paths(ns.from_dir)
-        for path in path_list:
-            print(os.path.abspath(path))
+        print('\n'.join(special_paths))
 
 
 if __name__ == "__main__":
