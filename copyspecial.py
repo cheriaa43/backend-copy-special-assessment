@@ -8,7 +8,7 @@
 
 # give credits
 
-__author__ = "Cheria Artis with Chris Warren, Chris Escobedo, Brandi Cotton, Piero"
+__author__ = "Cheria Artis with Chris Warren, Chris E, Brandi, Piero"
 
 import re
 import os
