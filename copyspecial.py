@@ -30,7 +30,6 @@ def get_special_paths(dirname):
 
 
 def copy_to(path_list, dest_dir):
-    """Copies the path list to the destination directory."""
     print(path_list)
     print(dest_dir)
     try:
